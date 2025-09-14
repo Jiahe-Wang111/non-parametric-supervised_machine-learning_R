@@ -1,63 +1,69 @@
-# non-parametric-supervised_machine-learning_R
+# non-parametric-supervised_machine-learning_R：Predictive Modeling with KNN, Decision Trees, and Random Forests
+This project demonstrates the application of three machine learning algorithms—K-Nearest Neighbors (KNN), Decision Trees, and Random Forests—to two distinct classification tasks: predicting social media ad clicks and identifying tweet authors.
+
 The focus is on non-parametric models, exploring how they handle prediction tasks where relationships may be non-linear or high-dimensional. Compared with parametric approaches (e.g., logistic regression, GAMs), these methods make fewer distributional assumptions and directly learn patterns from the data.
 
-Project Structure
-Part 1: Social Network Ad Purchase Prediction
+## Project Structure
 
-Objective: Predict whether a user will purchase a product based on Age, Gender, and Salary.
+### Part 1: Social Network Ad Purchase Prediction
 
-Models: K-Nearest Neighbors (KNN), Decision Tree, Random Forest
+**Objective**: Predict whether a user will purchase a product based on Age, Gender, and Estimated Salary.
 
-Key Steps:
+**Models Used**:
+- K-Nearest Neighbors (KNN)
+- Decision Tree
+- Random Forest
 
-Data preprocessing (factor encoding, train/test split, standardization for KNN)
+**Key Steps**:
+- Data preprocessing: Factor encoding, train-test splitting, and standardization (for KNN)
+- Hyperparameter tuning via cross-validation (`k` for KNN, `cp` for Decision Trees, `mtry` for Random Forest)
+- Evaluation of accuracy and model complexity trade-offs
+- Visualization of decision boundaries and variable importance
 
-Hyperparameter tuning with cross-validation (k for KNN, cp for decision trees, mtry for random forest)
+**Takeaway**:
+- KNN performs well in low-dimensional spaces but deteriorates with higher dimensions.
+- Decision Trees offer interpretable rules but are prone to overfitting.
+- Random Forests improve predictive performance and stability through ensemble learning, while also providing key predictor insights.
 
-Evaluation of model accuracy and complexity trade-offs
+---
 
-Visualization of decision boundaries and variable importance
+### Part 2: Predicting Tweet Authors (Bernie Sanders vs. Donald Trump)
 
-Takeaway:
+**Objective**: Classify tweet authorship based on text content.
 
-KNN performs adequately on low-dimensional data but deteriorates with more features.
+**Models Used**:
+- KNN
+- Decision Tree
+- Random Forest
 
-Decision trees provide interpretable splitting rules but are prone to overfitting.
+**Key Steps**:
+- Constructing a document-term matrix (DTM) from tweet text
+- Training models on high-dimensional text features
+- Cross-validation for model evaluation
+- Random Forest variable importance analysis to identify influential words
 
-Random forests improve predictive performance and stability through ensembling, while also highlighting key predictors.
+**Takeaway**:
+- KNN struggles with high-dimensional sparse data due to the curse of dimensionality.
+- Decision Trees capture non-linear patterns but are unstable.
+- Random Forests offer the best generalization, improved accuracy, and interpretable word importance.
 
-Part 2: Predicting Tweet Authors (Bernie Sanders vs. Donald Trump)
+---
 
-Objective: Predict the author of a tweet (Trump or Bernie) based on word features.
+## Key Learning Points
 
-Models: KNN, Decision Tree, Random Forest
+- **KNN**: A simple non-parametric classifier that works well in low dimensions but doesn’t scale well to high-dimensional data.
+- **Decision Trees**: Highly interpretable and capable of modeling complex non-linear relationships, but prone to overfitting.
+- **Random Forests**: An ensemble method that improves stability and accuracy, with built-in variable importance measures.
+- Cross-validation is essential for hyperparameter tuning and fair model comparison.
+- Non-parametric models are powerful tools for capturing complex and non-linear patterns in data.
 
-Key Steps:
+---
 
-Constructing a document-term matrix (DTM) from tweet text
+## Results Highlights
 
-Training each model on high-dimensional text features
+Both projects highlight the strengths and limitations of each algorithm across different data types (structured vs. text). Random Forests consistently provided the best performance and interpretability, especially in high-dimensional settings.
 
-Model evaluation using cross-validation
+---
 
-Random forest variable importance analysis to identify influential words
+Developed for educational purposes in machine learning and predictive modeling.
 
-Takeaway:
-
-KNN struggles in high-dimensional sparse data (curse of dimensionality).
-
-Decision trees can pick up non-linear word patterns but remain unstable.
-
-Random forests generalize best, offering improved accuracy and interpretable word-level importance.
-
-Key Learning Points
-
-KNN: Simple baseline for non-parametric classification, but limited scalability in high dimensions.
-
-Decision Trees: Intuitive and interpretable, suitable for modeling non-linear relationships, but sensitive to overfitting.
-
-Random Forests: Robust ensemble method that balances bias-variance tradeoff and provides stable variable importance measures.
-
-Cross-validation is essential for hyperparameter tuning and model comparison.
-
-Non-parametric models complement parametric approaches by capturing complex, non-linear structures in the data.
